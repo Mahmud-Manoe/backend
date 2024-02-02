@@ -1,4 +1,4 @@
-const StudentService = require("../../../services/Student.service.js");
+const StudentService = require("../../../services/student.service.js");
 const InvitationService = require("../../../services/invitation.service.js");
 const { SuccessFetchResponse } = require("../../../utils/response.js");
 
