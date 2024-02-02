@@ -1,0 +1,39 @@
+// "use strict";
+
+module.exports = {
+    async up(queryInterface, Sequelize) {
+        await queryInterface.bulkInsert(
+            "classes",
+            [
+                {
+                    nama_kelas: "mmk1",
+                    tentang_kelas: "good",
+                    catatan: "jangan lupa mandi",
+                    users_id: 1,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+                {
+                    nama_kelas: "mmk1",
+                    tentang_kelas: "good",
+                    catatan: "jangan lupa mandi",
+                    users_id: 2,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
+                },
+            ],
+            {}
+        );
+    },
+
+    async down(queryInterface, Sequelize) {
+        await queryInterface.bulkDelete(
+            "classes", null,
+            {
+                truncate: true,
+                cascade: true,
+                restartIdentity: true,
+            },
+        );
+    },
+};
