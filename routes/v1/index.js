@@ -11,10 +11,15 @@ const QuestionController = require("../../controller/api/v1/question.controller"
 const RoleController = require("../../controller/api/v1/role.controller");
 const StudentController = require("../../controller/api/v1/student.controller");
 const userController = require("../../controller/api/v1/users.controller");
+const ApplicationController = require("../../controller/api/v1/application.controller");
 
 const Authentication = require("../../middleware/midleware.js");
+const { json } = require("body-parser");
+
+
 
 //achievement
+v1.get('/', ApplicationController.handleGetRoot);
 v1.get("/achievements", AchievementController.getAchievements);
 v1.get("/achievement/:id", AchievementController.getAchievementById);
 v1.get("/achievement/materials/:id", AchievementController.getAchievementByMaterialId);
