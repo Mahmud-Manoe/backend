@@ -7,6 +7,7 @@ class AchievementRepository {
             const achievement = await models.achievements.findAll({});
             return achievement;
         } catch (err) {
+
             throw new InternalServerError();
         }
     }
