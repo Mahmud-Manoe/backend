@@ -33,12 +33,12 @@ module.exports = {
 
     "dialect": "postgres",
     "dialectModule": pg,
-    // "dialectOptions": {
-    //   "sslmode": {
-    //     "require": true,
-    //     "rejectUnauthorized": false,
-    //     // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
-    //   },
-    // }
+    "dialectOptions": {
+      "sslmode": {
+        "require": true,
+        "rejectUnauthorized": false,
+        // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
+      },
+    }
   }
 }
