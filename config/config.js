@@ -34,7 +34,7 @@ module.exports = {
     "dialect": "postgres",
     "dialectModule": pg,
     "dialectOptions": {
-      "sslmode": {
+      "ssl": {
         "require": true,
         "rejectUnauthorized": false,
         // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
