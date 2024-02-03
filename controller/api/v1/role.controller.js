@@ -1,9 +1,13 @@
 const RoleService = require("../../../services/role.service.js");
+const { login } = require("../../../services/user.service.js");
 const { SuccessFetchResponse } = require("../../../utils/response.js");
 
 class RoleController {
     async getRoles(req, res) {
         try {
+
+            console.log("hhh");
+
             const data = await RoleService.getAll();
             return SuccessFetchResponse(res, data);
         } catch (err) {

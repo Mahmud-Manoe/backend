@@ -6,12 +6,12 @@ class RoleRepository {
         try {
             const role = await models.roles.findAll({
                 attributes: {
-                    exclude: ["updatedAt", "createdAt"],
+                    exclude: ["updated_at", "creates_at"],
                 },
             });
             return role;
         } catch (err) {
-            // console.log(err);
+            console.log(err);
             throw new InternalServerError();
         }
     }

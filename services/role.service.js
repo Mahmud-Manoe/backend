@@ -9,7 +9,7 @@ const {
 
 class RoleService {
     async getAll() {
-
+        console.log("h");
         const role = await RoleRepository.getAll();
         return role;
     }

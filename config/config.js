@@ -1,6 +1,6 @@
 require("dotenv").config(); // this is important!
 const pg = require("pg")
-
+const fs = require('fs')
 module.exports = {
   "development": {
     "username": process.env.DATABASE_USERNAME,
@@ -8,7 +8,14 @@ module.exports = {
     "database": process.env.DATABASE_DATABASE,
     "host": process.env.DATABASE_HOST,
     "dialect": "postgres",
-    // "dialectModule": pg,
+    "dialectModule": pg,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false,
+        // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
+      },
+    }
   },
   "test": {
     "username": "postgres",
@@ -22,15 +29,16 @@ module.exports = {
     "password": process.env.DATABASE_PASSWORD,
     "database": process.env.DATABASE_DATABASE,
     "host": process.env.DATABASE_HOST,
-    "port": process.env.DATABASE_PORT,
+    // "port": process.env.DATABASE_PORT,
 
     "dialect": "postgres",
-    // "dialectModule": pg,
-    "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false,
-      },
-    }
+    "dialectModule": pg,
+    // "dialectOptions": {
+    //   "sslmode": {
+    //     "require": true,
+    //     "rejectUnauthorized": false,
+    //     // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
+    //   },
+    // }
   }
 }
