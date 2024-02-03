@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 app.use(routes);
 app.listen(env.PORT, () => {
   console.info(`App listening at http://localhost:${env.PORT}`);
