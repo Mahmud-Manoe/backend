@@ -1,4 +1,5 @@
 require("dotenv").config(); // this is important!
+const pg = require("pg")
 
 module.exports = {
   "development": {
