@@ -1,4 +1,5 @@
 require("dotenv").config(); // this is important!
+
 module.exports = {
   "development": {
     "username": process.env.DATABASE_USERNAME,
@@ -6,6 +7,7 @@ module.exports = {
     "database": process.env.DATABASE_DATABASE,
     "host": process.env.DATABASE_HOST,
     "dialect": "postgres",
+    "dialectModule": pg,
     // "port": process.env.DATABASE_PORT
   },
   "test": {
@@ -23,6 +25,7 @@ module.exports = {
     "port": process.env.DATABASE_PORT,
 
     "dialect": "postgres",
+    "dialectModule": pg,
     "dialectOptions": {
       "ssl": {
         "require": true,
