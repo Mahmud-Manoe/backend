@@ -9,15 +9,16 @@ module.exports = {
                     materi_keberapa: 15,
                     jum_cp: 2,
                     classes_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     materi_keberapa: 15,
                     jum_cp: 2,
                     classes_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
+
                 },
             ],
             {}

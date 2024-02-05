@@ -8,14 +8,14 @@ module.exports = {
                 {
                     invitations_id: 1,
                     users_id: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     invitations_id: 1,
                     users_id: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
 
             ],

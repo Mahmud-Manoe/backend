@@ -14,10 +14,10 @@ module.exports = {
                     jawaban_d: "woloo",
                     kunci_jawaban: "a",
                     skor: 1,
-                    peneyelesaian: "hahaha",
+
                     achievements_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     no_soal: 2,
@@ -29,9 +29,8 @@ module.exports = {
                     kunci_jawaban: "d",
                     skor: 1,
                     achievements_id: 1,
-                    peneyelesaian: "hahaha",
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
 
             ],

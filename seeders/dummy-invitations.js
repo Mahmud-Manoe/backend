@@ -8,16 +8,15 @@ module.exports = {
                 {
                     kode_undangan: "12mmk",
                     classes_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     kode_undangan: "12mmk",
                     classes_id: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
-
             ],
             {}
         );

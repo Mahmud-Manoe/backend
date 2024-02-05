@@ -6,19 +6,18 @@ module.exports = {
             "achievements",
             [
                 {
-
                     nama_cp: "pencerahan mmk",
                     jum_soal: 1,
                     materials_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     nama_cp: "mmk is good",
                     jum_soal: 1,
                     materials_id: 1,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
             ],
             {}
@@ -26,13 +25,10 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
-        await queryInterface.bulkDelete(
-            "achievements", null,
-            {
-                truncate: true,
-                cascade: true,
-                restartIdentity: true,
-            },
-        );
+        await queryInterface.bulkDelete("achievements", null, {
+            truncate: true,
+            cascade: true,
+            restartIdentity: true,
+        });
     },
 };

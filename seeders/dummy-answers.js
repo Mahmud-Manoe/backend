@@ -8,12 +8,13 @@ module.exports = {
             "answers",
             [
                 {
-
                     jawaban: "A",
                     users_id: 2,
                     questions_id: 1,
                     boolean: true,
                     skor: 3,
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
 
@@ -22,6 +23,8 @@ module.exports = {
                     questions_id: 2,
                     boolean: false,
                     skor: 0,
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
 
@@ -30,6 +33,8 @@ module.exports = {
                     questions_id: 3,
                     boolean: true,
                     skor: 3,
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
 
             ],

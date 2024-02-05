@@ -11,8 +11,8 @@ module.exports = {
                     password: "guru212",
                     no_wa: "0822",
                     roles_id: 2,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
                 {
                     username: "murid212",
@@ -20,8 +20,8 @@ module.exports = {
                     password: "murid212",
                     no_wa: "0822",
                     roles_id: 3,
-                    createdAt: new Date(),
-                    updatedAt: new Date(),
+                    created_at: new Date(),
+                    updated_at: new Date(),
                 },
             ],
             {}
