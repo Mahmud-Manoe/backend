@@ -5,6 +5,8 @@ const statusType = {
   404: "Not Found",
   409: "Conflict Resources",
   500: "Internal Server Error",
+
+
 };
 
 class ApplicationError extends Error {

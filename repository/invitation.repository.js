@@ -51,6 +51,7 @@ class InvitationRepository {
       const invitation = await models.invitations.findOne({
         where: { kode_undangan },
       });
+
       return invitation;
     } catch (err) {
       throw new InternalServerError();

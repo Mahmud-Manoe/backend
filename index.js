@@ -14,7 +14,7 @@ const app = express();
 // app.use(morgan('tiny'));
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 // const options = {
@@ -25,8 +25,7 @@ app.use(
   cors({
     credentials: true,
     origin: true,
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "DELETE", "PUT", "OPTION"],
   })
 );
 

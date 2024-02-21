@@ -14,6 +14,9 @@ module.exports = {
             users_id: {
                 type: Sequelize.INTEGER,
             },
+            nilai: {
+                type: Sequelize.INTEGER,
+            },
             created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,

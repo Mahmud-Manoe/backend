@@ -39,7 +39,6 @@ class UserService {
 
   async register(data) {
     const { username, email, password, roles_id } = data;
-    console.log(username)
 
     const isExists = await UserRepository.getOneByEmail({ email });
     if (isExists) {

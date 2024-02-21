@@ -1,3 +1,4 @@
+const { JSON } = require("sequelize");
 const models = require("../models/index");
 const { InternalServerError } = require("../utils/response.js");
 
@@ -107,12 +108,14 @@ class StudentRepository {
 
     async update(id, data) {
         try {
+            console.log(id, data);
             await models.students.update(data, { where: { id } });
-            const student = await models.students.findOne({
+            const student = await models.students.findAll({
                 where: {
-                    id: id,
+                    id,
                 },
             });
+            // console.log(student);
             return student;
         } catch (err) {
             throw new InternalServerError();

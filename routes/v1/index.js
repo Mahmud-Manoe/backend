@@ -147,6 +147,7 @@ v1.post(
   StudentController.createStudent
 ); //guru
 v1.put("/student/:id", StudentController.updateStudentById); //guru
+v1.put("/students", StudentController.updateStudentById); //guru
 v1.delete("/student/:id", StudentController.deleteStudent); //guru
 v1.delete(
   "/student",

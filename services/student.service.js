@@ -23,7 +23,7 @@ class StudentService {
     async getOneByUser(id) {
         const isExists = await StudentRepository.getOneByUser(id);
         if (!isExists) {
-            throw NotFound
+            throw new NotFound
         }
         const student = await StudentRepository.getOneByUser(id);
         return student;
@@ -39,7 +39,6 @@ class StudentService {
         const invitation = await InvitationRepository.getInvitationsById(resultS);
         const resultI = invitation.map(x => x.classes_id);
         const kelas = await KelasRepository.getByRoleSiswa(resultI);
-
         return kelas;
     }
 
@@ -48,25 +47,28 @@ class StudentService {
     async createStudent(id, data) {
         const { kode_undangan } = data
         const invitation = await InvitationRepository.getOneByCode(kode_undangan)
-        console.log(invitation.id);
+        if (!invitation) {
+            throw new NotFound
+        }
+        const student = await StudentRepository.getAllByInvitationId(invitation.id);
+
+        const isExists = student.filter((e) => e.users_id === id)
+
+        if (isExists.length !== 0) {
+            throw new KelasAlreadyExists
+        }
         const Student = await StudentRepository.store({
             invitations_id: invitation.id,
             users_id: id,
+            nilai: 0,
         });
         return Student;
     }
 
-    async updateStudent(id, data) {
-
-        const { materi_keberapa, jum_cp } = data;
-        const isExists = await StudentRepository.getOneById(id);
-        if (!isExists) {
-            throw new NotFound();
-        }
-
+    async updateStudent(id, body) {
+        const { nilai } = body;
         const Student = await StudentRepository.update(id, {
-            materi_keberapa,
-            jum_cp,
+            nilai,
         });
 
         return Student;
@@ -83,6 +85,7 @@ class StudentService {
         return Student;
     }
     async deleteStudentByUser(id, data) {
+        console.log(id, data, "d");
         const invitation = await InvitationRepository.getOneByIdClass(data)
         const Student = await StudentRepository.deleteStudentByUser(id, invitation.id, data);
         return Student;

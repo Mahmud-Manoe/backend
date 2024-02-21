@@ -1,6 +1,7 @@
 const StudentService = require("../../../services/student.service.js");
 const InvitationService = require("../../../services/invitation.service.js");
 const { SuccessFetchResponse } = require("../../../utils/response.js");
+const { JSON } = require("sequelize");
 
 class StudentController {
     async getStudents(req, res) {
@@ -33,7 +34,7 @@ class StudentController {
         try {
             const id = req.params.id;
             const invitation = await InvitationService.getOneByIdClass(id);
-            console.log(invitation);
+            console.log(invitation.id, "invitation");
 
             const data = await StudentService.getAllByInvitationId(invitation.id);
             return SuccessFetchResponse(res, data);
@@ -61,8 +62,10 @@ class StudentController {
     }
     async updateStudentById(req, res) {
         try {
-            const id = req.params.id;
-            const data = await StudentService.updateStudent(id, req.body);
+            const id = req.query.id;
+            const a = id.split(",")
+            const b = a.map(e => parseInt(e))
+            const data = await StudentService.updateStudent(b, req.body);
             return SuccessFetchResponse(res, data);
         } catch (err) {
             res.status(err.status).send(err);
@@ -81,6 +84,7 @@ class StudentController {
     async deleteStudentByUser(req, res) {
         try {
             const id = req.user.id;
+            console.log(id);
             const data = await StudentService.deleteStudentByUser(id, req.headers.data);
             return SuccessFetchResponse(res, data);
         } catch (err) {
