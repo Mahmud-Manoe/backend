@@ -12,7 +12,6 @@ const {
 
 class UserService {
   async login(email, password) {
-    console.log(email, password)
     const user = await UserRepository.getOneByEmail({ email });
     if (!user) {
       throw new NotFound();

@@ -9,7 +9,6 @@ class UserRepository {
       const user = await models.users.findOne({
         where: { email },
       });
-
       return user;
     } catch (err) {
       console.log(err);
