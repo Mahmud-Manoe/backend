@@ -80,7 +80,6 @@ class AnswerRepository {
             });
             return answer;
         } catch (err) {
-
             throw new InternalServerError();
         }
     }

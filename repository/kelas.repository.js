@@ -8,7 +8,6 @@ class KelasRepository {
       const kelas = await models.classes.findAll({});
       return kelas;
     } catch (err) {
-      // console.log(err);
       throw new InternalServerError();
     }
   }
@@ -64,8 +63,7 @@ class KelasRepository {
       return classes;
 
     } catch (err) {
-      // throw new InternalServerError();
-      console.log(err);
+      throw new InternalServerError();
     }
   }
 
