@@ -1,8 +1,6 @@
 const MaterialService = require("../../../services/material.service.js");
 const BookService = require("../../../services/book.service.js");
-const AchievementService = require("../../../services/achievement.service.js");
 const { SuccessFetchResponse } = require("../../../utils/response.js");
-const materialService = require("../../../services/material.service.js");
 
 class MaterialController {
     async getMaterials(req, res) {
@@ -35,11 +33,9 @@ class MaterialController {
         try {
             const id = req.query.classes_id;
             const data = await MaterialService.createMaterial(id, req.body);
-            // console.log(req.file);
 
             const books = await BookService.createBook(data.id, req);
             for (let i = 0; i < req.body.jum_cp; i++) {
-                console.log(books.id);
             }
             return SuccessFetchResponse(res, { data: data, book: books });
 
@@ -52,7 +48,6 @@ class MaterialController {
         try {
             const idm = req.params.id;
             const idb = req.query.book_id
-            console.log("dua", idb, idm);
             const data = await MaterialService.updateMaterial(idm, idb, req.body, req);
 
             return SuccessFetchResponse(res, data);

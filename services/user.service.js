@@ -31,9 +31,7 @@ class UserService {
     throw new NotAuthenticated();
   }
   async logout(token) {
-
     console.log("logout");
-
   }
 
   async register(data) {

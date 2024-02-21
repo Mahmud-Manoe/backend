@@ -60,7 +60,6 @@ class BookController {
             const book_id = req.query.books_id;
             const material_id = req.query.materials_id;
 
-            console.log(book_id, material_id);
             await MaterialService.deleteMaterial(material_id)
             const data = await BookService.deleteBook(book_id);
             return SuccessFetchResponse(res, data);

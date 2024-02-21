@@ -51,7 +51,6 @@ class QuestionController {
                 jum_soal: achievement.jum_soal + 1
             })
             const data = await QuestionService.createQuestion(id, req.body, null);
-            console.log(id, req.body, "ques");
             return SuccessFetchResponse(res, data);
         } catch (err) {
             res.status(err.status).send(err);
@@ -63,7 +62,6 @@ class QuestionController {
             const id = req.query.achievements_id;
             const jum_soal = req.query.jum_soal;
             await QuestionService.deleteByAchievement(id);
-            console.log(jum_soal);
             for (let i = 0; i < jum_soal; i++) {
                 await QuestionService.createQuestion(id, req.body, i + 1);
             }

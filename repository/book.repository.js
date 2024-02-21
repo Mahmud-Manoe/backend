@@ -78,14 +78,12 @@ class BookRepository {
     async deleteBook(id) {
         try {
             // await cloudinary.uploader.destroy(file)
-            console.log(id);
             models.books.destroy({
                 where: { id },
             });
             return { id: parseInt(id) };
         } catch (err) {
-            console.log(err);
-            // throw new InternalServerError();
+            throw new InternalServerError();
         }
     }
 }

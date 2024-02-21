@@ -14,17 +14,13 @@ class QuestionRepository {
     }
     async getAllByAchievementId(id) {
         try {
-
-            console.log(id);
             const question = await models.questions.findAll({
                 where: {
                     achievements_id: id
                 },
-
             });
             return question;
         } catch (err) {
-            // console.log(err);
             throw new InternalServerError();
         }
     }
@@ -41,7 +37,6 @@ class QuestionRepository {
             });
             return question;
         } catch (err) {
-            console.log(err);
             throw new InternalServerError();
         }
     }
@@ -87,7 +82,6 @@ class QuestionRepository {
     async deleteByAchievementId(id) {
         try {
             const iden = id.map(e => e.id)
-            console.log("apa", iden);
             models.questions.destroy({
                 where: {
                     [Op.or]: [{

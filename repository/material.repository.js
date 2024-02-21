@@ -64,7 +64,6 @@ class MaterialRepository {
                     id: id,
                 },
             });
-            console.log("ok");
             return material;
         } catch (err) {
             throw new InternalServerError();
@@ -78,7 +77,6 @@ class MaterialRepository {
                     id: id,
                 },
             });
-            console.log("ok");
             return material;
         } catch (err) {
             throw new InternalServerError();

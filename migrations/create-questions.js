@@ -30,10 +30,10 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             skor: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
             },
             achievements_id: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
             },
             created_at: {
                 allowNull: false,

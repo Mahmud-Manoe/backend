@@ -4,13 +4,10 @@ const { InternalServerError } = require("../utils/response.js");
 class RoleRepository {
   async getAll() {
     try {
-      console.log("h");
       const role = await models.roles.findAll({});
-      console.log(role);
       return role;
     } catch (err) {
-      console.log(err);
-      //   throw new InternalServerError();
+      throw new InternalServerError();
     }
   }
 

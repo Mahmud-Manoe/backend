@@ -1,6 +1,5 @@
 require("dotenv").config(); // this is important!
-const pg = require("pg");
-const fs = require("fs");
+
 module.exports = {
   development: {
     username: process.env.DATABASE_USERNAME,

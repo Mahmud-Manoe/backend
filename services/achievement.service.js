@@ -65,7 +65,6 @@ class AchievementService {
         if (!isExists) {
             throw new NotFound();
         }
-        console.log(isExists.material);
         await QuestionRepository.deleteByOneAchievementId(id)
         await MaterialRepository.updateJumCp(isExists.material.id, {
             jum_cp: isExists.material.jum_cp - 1

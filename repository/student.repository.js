@@ -31,7 +31,6 @@ class StudentRepository {
     }
     async getOneByUser(id) {
         try {
-            console.log(id, "st");
             const student = await models.students.findOne({
                 where: { users_id: id },
                 attributes: {
@@ -99,23 +98,20 @@ class StudentRepository {
                     id: invitation.classes_id,
                 }
             })
-            console.log(kelas.id);
             return kelas;
         } catch (err) {
-            console.log(err);
+            throw new InternalServerError();
         }
     }
 
     async update(id, data) {
         try {
-            console.log(id, data);
             await models.students.update(data, { where: { id } });
             const student = await models.students.findAll({
                 where: {
                     id,
                 },
             });
-            // console.log(student);
             return student;
         } catch (err) {
             throw new InternalServerError();
@@ -148,7 +144,6 @@ class StudentRepository {
                     invitations_id,
                 },
             });
-            console.log(student, 'deleteSBU');
             return { id: parseInt(data) };
         } catch (err) {
             throw new InternalServerError();

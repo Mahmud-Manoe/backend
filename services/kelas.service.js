@@ -61,7 +61,6 @@ class KelasService {
   }
 
   async getByRoleSiswa(id) {
-    console.log("ser");
     const student = await studentRepository.getStudentByUser(id);
     const resultS = student.map(x => x.invitations_id);
     const invitation = await InvitationRepository.getInvitationsById(resultS);

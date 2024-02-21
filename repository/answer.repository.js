@@ -25,7 +25,6 @@ class AnswerRepository {
             });
             return answer;
         } catch (err) {
-            // console.log(err);
             throw new InternalServerError();
         }
     }
@@ -39,7 +38,6 @@ class AnswerRepository {
             });
             return answer;
         } catch (err) {
-            // console.log(err);
             throw new InternalServerError();
         }
     }
@@ -55,7 +53,6 @@ class AnswerRepository {
             });
             return answer;
         } catch (err) {
-            // console.log(err);
             throw new InternalServerError();
         }
     }
@@ -69,7 +66,6 @@ class AnswerRepository {
             });
             return answer2;
         } catch (err) {
-            console.log(err);
             throw new InternalServerError();
         }
     }

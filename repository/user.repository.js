@@ -11,7 +11,6 @@ class UserRepository {
       });
       return user;
     } catch (err) {
-      console.log(err);
       throw new InternalServerError();
     }
   }
@@ -32,7 +31,6 @@ class UserRepository {
       });
       return user;
     } catch (err) {
-      // console.log(err);
       throw new InternalServerError();
     }
   }
@@ -41,7 +39,6 @@ class UserRepository {
       const kelas = await models.users.findAll({});
       return kelas;
     } catch (err) {
-      // console.log(err);
       throw new InternalServerError();
     }
   }
@@ -58,9 +55,7 @@ class UserRepository {
       });
       return newUser;
     } catch (err) {
-      console.log(err);
-
-      // throw new InternalServerError();
+      throw new InternalServerError();
     }
   }
   async update(id, data) {

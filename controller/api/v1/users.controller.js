@@ -14,11 +14,9 @@ class UserController {
     try {
       const { email, password, roles_id } = req.body;
       const data = await UserService.login(email, password, roles_id);
-      console.log("hh");
       return SuccessFetchResponse(res, data);
     } catch (err) {
       res.status(err.status).send(err);
-      console.log(err);
     }
   }
   async logoutUser(req, res) {
@@ -31,7 +29,6 @@ class UserController {
   }
   async profile(req, res) {
     try {
-      console.log(req.user);
       const id = req.user.id;
       const data = await UserService.getOneById(id);
       return SuccessFetchResponse(res, data);
@@ -61,7 +58,6 @@ class UserController {
   async updateProfile(req, res) {
     // try {
     const { id } = req.user;
-    console.log(id);
     const data = await UserService.updateUser(id, req.body, req);
     return SuccessFetchResponse(res, data);
     // } catch (err) {

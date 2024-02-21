@@ -42,7 +42,6 @@ class ClassController {
   async kelasSiswa(req, res) {
     try {
       const { id } = req.user;
-      console.log("con");
       const data = await KelasService.getByRoleSiswa(id);
       return SuccessFetchResponse(res, data);
     } catch (err) {
@@ -52,7 +51,6 @@ class ClassController {
 
   async updateKelasById(req, res) {
     const id = req.params.id;
-    console.log(id);
     try {
       const data = await KelasService.updateKelas(id, req.body);
       return SuccessFetchResponse(res, data);

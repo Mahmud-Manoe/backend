@@ -85,7 +85,6 @@ class StudentService {
         return Student;
     }
     async deleteStudentByUser(id, data) {
-        console.log(id, data, "d");
         const invitation = await InvitationRepository.getOneByIdClass(data)
         const Student = await StudentRepository.deleteStudentByUser(id, invitation.id, data);
         return Student;

@@ -88,7 +88,6 @@ class QuestionService {
         if (!isExists) {
             throw new NotFound();
         }
-        console.log(isExists.achievement.jum_soal);
         await AchievementRepository.update(isExists.achievement.id, {
 
             jum_soal: isExists.achievement.jum_soal - 1

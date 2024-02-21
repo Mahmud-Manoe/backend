@@ -30,7 +30,6 @@ class AnswerService {
 
         const materi = await MaterialRepository.getOneByClassId(idk);
         const idm = materi?.id;
-        console.log(materi, idm, "id");
         const achievement = await AchievementRepository.getAllByMaterialId(idm);
         const achId = achievement.map(x => x.id);
         const question = await questionRepository.getAllByAchievementId(achId);
