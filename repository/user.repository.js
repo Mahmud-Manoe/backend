@@ -1,6 +1,7 @@
 const models = require("../models/index");
 const { InternalServerError } = require("../utils/response.js");
-
+const { Op } = require("sequelize");
+// const {Op} = require("Sequelize");
 class UserRepository {
 
   async getOneByEmail(query) {
@@ -14,20 +15,40 @@ class UserRepository {
       throw new InternalServerError();
     }
   }
+  async getOneByEmailRole(query) {
+    try {
+      const { email, role } = query;
+      console.log(email, typeof (role));
+      const user = await models.users.findOne({
+        where: { email, roles_id: parseInt(role) },
+      });
+      return user;
+    } catch (err) {
+      throw new InternalServerError();
+    }
+  }
   async getOneById(id) {
     try {
       const user = await models.users.findOne({
         where: {
           id,
         },
-        // include: [
-        //   {
-        //     model: models.roles,
-        //     attributes: {
-        //       exclude: ["updatedAt", "createdAt"],
-        //     },
-        //   },
-        // ]
+      });
+      return user;
+    } catch (err) {
+      throw new InternalServerError();
+    }
+  }
+  async getOneByName(username, roles, email) {
+    try {
+      const user = await models.users.findOne({
+        where: {
+          roles_id: parseInt(roles),
+          [Op.or]: [
+            { username, },
+            { email, }
+          ]
+        },
       });
       return user;
     } catch (err) {

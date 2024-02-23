@@ -23,6 +23,7 @@ class MaterialController {
     async getMaterialByclassId(req, res) {
         try {
             const id = req.params.id;
+            console.log(id, "id");
             const data = await MaterialService.getOneByClassId(id);
             return SuccessFetchResponse(res, data);
         } catch (err) {

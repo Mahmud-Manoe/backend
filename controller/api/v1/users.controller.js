@@ -56,13 +56,13 @@ class UserController {
     }
   }
   async updateProfile(req, res) {
-    // try {
-    const { id } = req.user;
-    const data = await UserService.updateUser(id, req.body, req);
-    return SuccessFetchResponse(res, data);
-    // } catch (err) {
-    //   res.status(err.status).send(err);
-    // }
+    try {
+      const { id } = req.user;
+      const data = await UserService.updateUser(id, req.body, req);
+      return SuccessFetchResponse(res, data);
+    } catch (err) {
+      res.status(err.status).send(err);
+    }
   }
 }
 

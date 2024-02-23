@@ -11,8 +11,8 @@ const {
 } = require("../utils/response.js");
 
 class UserService {
-  async login(email, password) {
-    const user = await UserRepository.getOneByEmail({ email });
+  async login(email, password, roles) {
+    const user = await UserRepository.getOneByEmail({ email, roles });
     if (!user) {
       throw new NotFound();
     }
@@ -37,15 +37,13 @@ class UserService {
   async register(data) {
     const { username, email, password, roles_id } = data;
 
-    const isExists = await UserRepository.getOneByEmail({ email });
+    const isExists = await UserRepository.getOneByName(username, roles_id, email);
     if (isExists) {
       throw new UserAlreadyExists();
     }
-    const randomToken = getRandomToken();
+    // const randomToken = getRandomToken();
     // const content = `https://localhost:300/confirm/${randomToken}?email=${email}`
     // sendEmail(email, 'confirmation', content);
-
-
     const encryptedPassword = await bcrypt.hash(password, 10);
     const user = await UserRepository.store({
       username,
