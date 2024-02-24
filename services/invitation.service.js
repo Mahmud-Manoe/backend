@@ -27,6 +27,7 @@ class InvitationService {
         if (!isExists) {
             throw new NotFound();
         }
+
         const invitation = await InvitationRepository.getOneByIdClass(id);
         return invitation;
     }

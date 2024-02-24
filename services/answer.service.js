@@ -29,11 +29,25 @@ class AnswerService {
     async getAllByTeacher(idk) {
 
         const materi = await MaterialRepository.getOneByClassId(idk);
+        if (!materi) {
+            throw new NotFound();
+        }
         const idm = materi?.id;
         const achievement = await AchievementRepository.getAllByMaterialId(idm);
+        if (achievement.length === 0) {
+            throw new NotFound();
+        }
         const achId = achievement.map(x => x.id);
         const question = await questionRepository.getAllByAchievementId(achId);
+        if (question.length === 0) {
+            throw new NotFound();
+        }
         const qId = question.map(x => x.id);
+        const isExists = await AnswerRepository.getByQuestion(qId);
+
+        if (isExists.length === 0) {
+            throw new NotFound();
+        }
         const answer = await AnswerRepository.getByQuestion(qId);
         return answer;
     }

@@ -30,6 +30,11 @@ class StudentService {
     }
     async getAllByInvitationId(id) {
 
+        const isExists = await StudentRepository.getAllByInvitationId(id);
+        if (isExists.length === 0) {
+            throw new NotFound
+        }
+        console.log(isExists, "isi");
         const student = await StudentRepository.getAllByInvitationId(id);
         return student;
     }
