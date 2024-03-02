@@ -36,16 +36,18 @@ class MaterialService {
 
     async createMaterial(id, data) {
         const classes_id = id;
-        const { materi_keberapa, jum_cp } = data
+        const { materi_keberapa, jum_cp, vidio } = data
         const material = await MaterialRepository.store({
             materi_keberapa,
             jum_cp,
             classes_id,
+            vidio,
         });
         for (let i = 0; i < jum_cp; i++) {
             await AchievementRepository.store({
                 nama_cp: null,
                 jum_soal: null,
+                vidio: null,
                 materials_id: material.id,
             });
         }
@@ -55,7 +57,7 @@ class MaterialService {
 
     async updateMaterial(material_id, book_id, data, req) {
 
-        const { materi_keberapa, jum_cp, book } = data;
+        const { materi_keberapa, jum_cp, vidio, book } = data;
         const isExists = await MaterialRepository.getOneById(material_id);
         if (!isExists) {
             throw new NotFound();
@@ -63,6 +65,7 @@ class MaterialService {
         const Material = await MaterialRepository.update(material_id, {
             materi_keberapa,
             jum_cp,
+            vidio,
         });
 
         if (book === 'undefined' && isExists.jum_cp === parseInt(jum_cp)) return

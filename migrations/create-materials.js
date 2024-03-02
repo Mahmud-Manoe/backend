@@ -15,6 +15,9 @@ module.exports = {
             jum_cp: {
                 type: Sequelize.INTEGER,
             },
+            vidio: {
+                type: Sequelize.STRING,
+            },
             classes_id: {
                 type: Sequelize.INTEGER
             },

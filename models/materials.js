@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 
             materi_keberapa: DataTypes.INTEGER,
             jum_cp: DataTypes.INTEGER,
+            vidio: DataTypes.STRING,
             classes_id: DataTypes.INTEGER
         },
         {

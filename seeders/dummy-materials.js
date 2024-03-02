@@ -8,6 +8,7 @@ module.exports = {
                 {
                     materi_keberapa: 15,
                     jum_cp: 2,
+                    vidio: "https://www.youtube.com/embed/ZrpEIw8IWwk?si=Gfhuti5qaQtAKWHC",
                     classes_id: 1,
                     created_at: new Date(),
                     updated_at: new Date(),
@@ -15,6 +16,7 @@ module.exports = {
                 {
                     materi_keberapa: 15,
                     jum_cp: 2,
+                    vidio: "https://www.youtube.com/embed/ZrpEIw8IWwk?si=Gfhuti5qaQtAKWHC",
                     classes_id: 1,
                     created_at: new Date(),
                     updated_at: new Date(),
