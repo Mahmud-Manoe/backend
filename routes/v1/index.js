@@ -1,9 +1,11 @@
 const v1 = require("express").Router();
+const uploadImage = require("../../utils/image");
 const upload = require("../../utils/multer");
 const uploadOnMemory = require("../../utils//uploadOnMemory");
 const AchievementController = require("../../controller/api/v1/achievement.controller");
 const AnswerController = require("../../controller/api/v1/answer.controller");
 const BookController = require("../../controller/api/v1/book.controller");
+const CompletionController = require("../../controller/api/v1/completion.controller");
 const kelasController = require("../../controller/api/v1/class.controller");
 const InvitationController = require("../../controller/api/v1/invitation.controller");
 const MaterialController = require("../../controller/api/v1/material.controller");
@@ -38,6 +40,13 @@ v1.get("/book/class/:id", BookController.getBookByClassId);
 v1.post("/book", upload.single("book"), BookController.createBook); //guru
 v1.put("/book/:id", upload.single("book"), BookController.updateBookById); //guru
 v1.delete("/book", BookController.deleteBook); //guru
+
+//completion
+v1.get("/completions", CompletionController.getCompletions);
+v1.get("/completion/:id", CompletionController.getCompletionById);
+v1.post("/completion", upload.single("completion"), CompletionController.createCompletion); //guru
+v1.put("/completion/:id", upload.single("completion"), CompletionController.updateCompletionById); //guru
+v1.delete("/completion/:id", CompletionController.deleteCompletion); //guru
 
 //answer
 v1.get("/answers", AnswerController.getAnswers);

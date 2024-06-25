@@ -36,20 +36,4 @@ app.listen(env.PORT, () => {
   console.info(`App listening at http://localhost:${env.PORT}`);
 });
 
-// const host = "0.0.0.0";
-
-// Listen on a specific port via the PORT environment variable
-// const port = 8000;
-// cors_proxy
-//   .createServer({
-//     originWhitelist: [], // Allow all origins
-//   })
-//   .listen(port, host, function () {
-//     console.log("Running CORS Anywhere on " + host + ":" + port);
-//   });
-// app.use("/doc", ui.serve, ui.setup(document));
-// app.get("/api-docs", (req, res) => {
-//   res.sendFile(__dirname + "/swagger.yaml");
-// });
-
 module.exports = app;

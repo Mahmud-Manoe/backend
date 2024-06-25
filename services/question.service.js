@@ -27,8 +27,9 @@ class QuestionService {
     async createQuestion(id, data, nomor) {
 
         const achievements_id = id;
-        const no_soal = nomor
+
         const {
+            no_soal,
             soal,
             jawaban_a,
             jawaban_b,
