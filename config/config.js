@@ -8,13 +8,13 @@ module.exports = {
     database: process.env.DATABASE_DATABASE,
     host: process.env.DATABASE_HOST,
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-        // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
-      },
-    },
+    // dialectOptions: {
+    //   ssl: {
+    //     require: true,
+    //     rejectUnauthorized: false,
+    //     // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
+    //   },
+    // },
   },
   test: {
     username: "postgres",
@@ -31,12 +31,12 @@ module.exports = {
     "port": process.env.DATABASE_PORT,
 
     dialect: "postgres",
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-        // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
-      },
-    },
+    // dialectOptions: {
+    //   ssl: {
+    //     require: true,
+    //     rejectUnauthorized: false,
+    //     // "crt": fs.readFileSync(__dirname + '/ssl/BaltimoreCyberTrustRoot.crt.pem')
+    //   },
+    // },
   },
 };
